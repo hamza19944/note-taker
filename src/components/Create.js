@@ -12,9 +12,12 @@ function Create() {
         setBodyText(e.target.value)
     }
     function createNote(){
+        // let date = new Date()
+
         let note = {
             noteTitle: title,
-            noteBody: bodyText
+            noteBody: bodyText,
+            date : Date.now()
         }
         notes.push(note)
         if(JSON.parse(localStorage.getItem("notes")) === null){

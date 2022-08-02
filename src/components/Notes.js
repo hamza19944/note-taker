@@ -13,8 +13,6 @@ function Notes(props){
         }
     }, [])
     
-    props.searchItems(notes)
-    
     let finalNotes = notes
     function deleteNote(e){
         const element = e.target
@@ -40,14 +38,22 @@ function Notes(props){
         }
     }
 
+    let data = props.searchValue
+
+    if(props.timeValue === "old notes"){
+        notes.sort((a, b) => {
+            console.log(a.date < b.date)
+        })
+    }
+
     return (
         <div className="notes">
             {
                 notes.map((note, i) => {
-                    return <div className="note" onClick={deleteNote} key={i} data-key={i}>
+                    return( note.noteTitle.includes(data) && <div className="note" onClick={deleteNote} key={i} data-key={i}>
                         <h3>{note.noteTitle}</h3>
                         <p>{note.noteBody}</p>
-                    </div>
+                    </div>)
                 })
             }
             <div className="last">
