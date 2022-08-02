@@ -43,9 +43,6 @@ function Notes(props){
     let arrayOfNotes = () => {
         let newArray = []
         if(props.timeValue === "old notes"){
-            // notes.sort((a, b) => {
-            //     return a.date > b.date ? newArray.push(a) : ""
-            // })
             newArray = [...notes].reverse()
             return newArray
         }else{
