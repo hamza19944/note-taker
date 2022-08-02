@@ -40,16 +40,22 @@ function Notes(props){
 
     let data = props.searchValue
 
-    if(props.timeValue === "old notes"){
-        notes.sort((a, b) => {
-            console.log(a.date < b.date)
-        })
+    let arrayOfNotes = () => {
+        let newArray = []
+        if(props.timeValue === "old notes"){
+            // notes.sort((a, b) => {
+            //     return a.date > b.date ? newArray.push(a) : ""
+            // })
+            newArray = [...notes].reverse()
+            return newArray
+        }else{
+            return notes
+        }
     }
-
     return (
         <div className="notes">
             {
-                notes.map((note, i) => {
+                arrayOfNotes().map((note, i) => {
                     return( note.noteTitle.includes(data) && <div className="note" onClick={deleteNote} key={i} data-key={i}>
                         <h3>{note.noteTitle}</h3>
                         <p>{note.noteBody}</p>
