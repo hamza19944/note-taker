@@ -60,7 +60,7 @@ function Notes(props){
                 })
             }
             <div className="last">
-                <Link to="/create" className="anchor">Create New Note</Link>
+                <Link to="/create" className="anchor" onClick={props.changeHeaderClass}>Create New Note</Link>
             </div>
         </div>
     )

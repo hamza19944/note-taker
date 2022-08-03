@@ -1,14 +1,13 @@
 import { useState } from "react"
 import Notes from "./Notes"
 
-function Home() {
+function Home(props) {
     const [words, setWords] = useState("")
     const [selectValue, setSelectValue] = useState("")
 
     function sV(e) {
         setSelectValue(e.target.value);
     }
-
     return(
         <main>
             <div className="search">
@@ -22,7 +21,7 @@ function Home() {
                     <option name="old-notes">old notes</option>
                 </select>
             </div>
-            <Notes searchValue = {words} timeValue = {selectValue} />
+            <Notes searchValue = {words} timeValue = {selectValue} changeHeaderClass = {props.changeHeaderClass}/>
         </main>
     )
 }

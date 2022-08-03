@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-function Create() {
+function Create(props) {
     const [title, setTitle] = useState("")
     const [bodyText, setBodyText] = useState("")
     let notes = []
@@ -13,7 +13,6 @@ function Create() {
     }
     function createNote(){
         // let date = new Date()
-
         let note = {
             noteTitle: title,
             noteBody: bodyText,
@@ -21,7 +20,6 @@ function Create() {
         }
         notes.push(note)
         if(JSON.parse(localStorage.getItem("notes")) === null){
-            console.log("localStorage is empty");
             localStorage.setItem("notes",JSON.stringify(notes))
         }else{
             JSON.parse(localStorage.getItem("notes")).forEach(el => {

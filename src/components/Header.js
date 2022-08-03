@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 function Header(){
     let [isActive, setIsActive] = useState(true)
-
     function toggleActiveClass(e){
         setIsActive(!isActive)
     }
+
     return (
         <header>
             <h1>Note Taker</h1>
